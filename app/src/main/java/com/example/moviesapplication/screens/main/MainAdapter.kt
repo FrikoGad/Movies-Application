@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.moviesapplication.MAIN
 import com.example.moviesapplication.R
 import com.example.moviesapplication.models.MovieItemModel
 import kotlinx.android.synthetic.main.item_layout.view.*
@@ -23,6 +25,12 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.itemView.item_title.text = listMovies[position].nameRu
         holder.itemView.item_date.text = listMovies[position].premiereRu
+
+        Glide.with(MAIN)
+            .load(listMovies[position].posterUrlPreview)
+            .centerCrop()
+            .placeholder(R.drawable.ic_launcher_foreground)
+            .into(holder.itemView.item_img)
     }
 
     override fun getItemCount(): Int {
