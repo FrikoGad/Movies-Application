@@ -1,5 +1,6 @@
 package com.example.moviesapplication.screens.main
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import com.example.moviesapplication.R
 import com.example.moviesapplication.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
@@ -35,9 +35,14 @@ class MainFragment : Fragment() {
         mBinding = null
     }
 
+    @SuppressLint("FragmentLiveDataObserve")
     private fun init() {
         val viewModel = ViewModelProvider(this).get(MainFragmentViewModel::class.java)
         recyclerView = binding.rvMain
         recyclerView.adapter = adapter
+        viewModel.getMovies()
+        viewModel.myMovies.observe(this) { list ->
+            adapter.setList(list.body()!!.items)
+        }
     }
 }

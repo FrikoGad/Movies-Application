@@ -36,4 +36,9 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MyViewHolder>() {
     override fun getItemCount(): Int {
         return listMovies.size
     }
+
+    fun setList(list: List<MovieItemModel>) {
+        listMovies = list
+        notifyDataSetChanged()
+    }
 }
