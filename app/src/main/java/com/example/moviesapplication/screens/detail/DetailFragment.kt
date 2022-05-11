@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.moviesapplication.MAIN
 import com.example.moviesapplication.R
 import com.example.moviesapplication.databinding.FragmentDetailBinding
 import com.example.moviesapplication.databinding.FragmentMainBinding
+import com.example.moviesapplication.models.MovieItemModel
 import com.example.moviesapplication.screens.favorite.FavoriteFragmentViewModel
 import com.example.moviesapplication.screens.main.MainAdapter
 
@@ -17,12 +20,15 @@ class DetailFragment : Fragment() {
 
     private var mBinding: FragmentDetailBinding?= null
     private val binding get() = mBinding!!
+    lateinit var currentMovie: MovieItemModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         mBinding = FragmentDetailBinding.inflate(layoutInflater, container, false)
+        currentMovie = arguments?.getSerializable("movie") as MovieItemModel
         return binding.root
     }
 
@@ -38,5 +44,13 @@ class DetailFragment : Fragment() {
 
     private fun init() {
         val viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+        Glide.with(MAIN)
+            .load(currentMovie.posterUrlPreview)
+            .centerCrop()
+            .placeholder(R.drawable.ic_launcher_foreground)
+            .into(binding.imgDetail)
+        binding.tvTitle.text = currentMovie.nameRu
+        binding.tvDate.text = currentMovie.premiereRu
+        binding.tvCountry.text = "Россия"
     }
 }

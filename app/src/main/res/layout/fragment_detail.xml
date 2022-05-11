@@ -21,7 +21,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_detail"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
         app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
 
 
@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Title"
+        android:text="Телохранитель жены киллерафы"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"

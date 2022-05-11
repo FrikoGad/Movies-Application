@@ -1,5 +1,7 @@
 package com.example.moviesapplication.models
 
+import java.io.Serializable
+
 data class MovieItemModel(
     val countries: List<Country>,
     val duration: Int,
@@ -11,4 +13,4 @@ data class MovieItemModel(
     val posterUrlPreview: String,
     val premiereRu: String,
     val year: Int
-)
+) : Serializable

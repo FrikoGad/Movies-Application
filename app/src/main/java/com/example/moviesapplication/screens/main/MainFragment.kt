@@ -9,11 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesapplication.MAIN
 import com.example.moviesapplication.R
 import com.example.moviesapplication.databinding.FragmentMainBinding
+import com.example.moviesapplication.models.MovieItemModel
 
 class MainFragment : Fragment() {
 
     lateinit var recyclerView: RecyclerView
-    private var mBinding: FragmentMainBinding ?= null
+    private var mBinding: FragmentMainBinding? = null
     private val binding get() = mBinding!!
     private val adapter by lazy { MainAdapter() }
 
@@ -59,6 +60,14 @@ class MainFragment : Fragment() {
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    companion object {
+        fun clickMovie(model: MovieItemModel) {
+            val bundle = Bundle()
+            bundle.putSerializable("movie", model)
+            MAIN.navController.navigate(R.id.action_mainFragment_to_detailFragment, bundle)
         }
     }
 }
