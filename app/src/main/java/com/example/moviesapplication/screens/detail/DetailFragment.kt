@@ -18,8 +18,9 @@ import com.example.moviesapplication.screens.main.MainAdapter
 
 class DetailFragment : Fragment() {
 
-    private var mBinding: FragmentDetailBinding?= null
+    private var mBinding: FragmentDetailBinding? = null
     private val binding get() = mBinding!!
+    private var isFavorite = false
     lateinit var currentMovie: MovieItemModel
 
 
@@ -52,5 +53,15 @@ class DetailFragment : Fragment() {
         binding.tvTitle.text = currentMovie.nameRu
         binding.tvDate.text = currentMovie.premiereRu
         binding.tvCountry.text = "Россия"
+
+        binding.imgDetailFavorite.setOnClickListener {
+            isFavorite = if (!isFavorite) {
+                binding.imgDetailFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
+                true
+            } else {
+                binding.imgDetailFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+                false
+            }
+        }
     }
 }
