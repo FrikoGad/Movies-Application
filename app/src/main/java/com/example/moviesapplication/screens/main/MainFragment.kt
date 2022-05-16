@@ -40,9 +40,10 @@ class MainFragment : Fragment() {
     @SuppressLint("FragmentLiveDataObserve")
     private fun init() {
         val viewModel = ViewModelProvider(this).get(MainFragmentViewModel::class.java)
+        viewModel.initDatabase()
         recyclerView = binding.rvMain
         recyclerView.adapter = adapter
-        viewModel.getMovies()
+        viewModel.getMoviesRetrofit()
         viewModel.myMovies.observe(this) { list ->
             adapter.setList(list.body()!!.items)
         }

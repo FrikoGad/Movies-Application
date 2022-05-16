@@ -9,9 +9,7 @@ import java.io.Serializable
 data class MovieItemModel(
     @PrimaryKey(autoGenerate = true)
     val kinopoiskId: Int,
-    val countries: List<Country>,
     val duration: Int,
-    val genres: List<Genre>,
     val nameEn: String,
     val posterUrl: String,
     val year: Int,
