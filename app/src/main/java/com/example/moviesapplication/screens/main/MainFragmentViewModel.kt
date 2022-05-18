@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.moviesapplication.REALIZATION
 import com.example.moviesapplication.data.retrofit.RetrofitRepository
 import com.example.moviesapplication.data.room.MoviesRoomDatabase
 import com.example.moviesapplication.data.room.repository.MoviesRepositoryRealization
@@ -14,7 +15,6 @@ import retrofit2.Response
 
 class MainFragmentViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = RetrofitRepository()
-    lateinit var realization: MoviesRepositoryRealization
     val myMovies: MutableLiveData<Response<MovieModel>> = MutableLiveData()
 
     val context = application
@@ -32,6 +32,6 @@ class MainFragmentViewModel(application: Application) : AndroidViewModel(applica
 
     fun initDatabase() {
         val daoMovie = MoviesRoomDatabase.getInstance(context).getMovieDao()
-        realization = MoviesRepositoryRealization(daoMovie)
+        REALIZATION = MoviesRepositoryRealization(daoMovie)
     }
 }
