@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.moviesapplication.MAIN
 import com.example.moviesapplication.R
+import com.example.moviesapplication.SaveShared
 import com.example.moviesapplication.databinding.FragmentDetailBinding
 import com.example.moviesapplication.databinding.FragmentMainBinding
 import com.example.moviesapplication.models.MovieItemModel
@@ -44,7 +45,15 @@ class DetailFragment : Fragment() {
     }
 
     private fun init() {
+        val valueBoolean = SaveShared.getFavorite(MAIN, currentMovie.kinopoiskId.toString())
         val viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+
+        if (isFavorite != valueBoolean) {
+            binding.imgDetailFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
+        } else {
+            binding.imgDetailFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+        }
+
         Glide.with(MAIN)
             .load(currentMovie.posterUrlPreview)
             .centerCrop()
@@ -52,16 +61,17 @@ class DetailFragment : Fragment() {
             .into(binding.imgDetail)
         binding.tvTitle.text = currentMovie.nameRu
         binding.tvDate.text = currentMovie.premiereRu
-        binding.tvCountry.text = "Россия"
 
         binding.imgDetailFavorite.setOnClickListener {
-            isFavorite = if (!isFavorite) {
+            isFavorite = if (isFavorite == valueBoolean) {
                 binding.imgDetailFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
-                viewModel.insert(currentMovie){}
+                SaveShared.setFavorite(MAIN, currentMovie.kinopoiskId.toString(), true)
+                viewModel.insert(currentMovie) {}
                 true
             } else {
                 binding.imgDetailFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24)
-                viewModel.delete(currentMovie){}
+                SaveShared.setFavorite(MAIN, currentMovie.kinopoiskId.toString(), false)
+                viewModel.delete(currentMovie) {}
                 false
             }
         }
