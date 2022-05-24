@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.item_layout.view.*
 
 class MainAdapter : RecyclerView.Adapter<MainAdapter.MyViewHolder>() {
 
-    private var listMovies = emptyList<MovieItemModel>()
+    var listMovies = emptyList<MovieItemModel>()
 
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
