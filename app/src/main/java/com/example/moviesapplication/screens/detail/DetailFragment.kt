@@ -1,5 +1,6 @@
 package com.example.moviesapplication.screens.detail
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,8 +15,10 @@ import com.example.moviesapplication.SaveShared
 import com.example.moviesapplication.databinding.FragmentDetailBinding
 import com.example.moviesapplication.databinding.FragmentMainBinding
 import com.example.moviesapplication.models.MovieItemModel
+import com.example.moviesapplication.models.MoviesModel
 import com.example.moviesapplication.screens.favorite.FavoriteFragmentViewModel
 import com.example.moviesapplication.screens.main.MainAdapter
+import retrofit2.Response
 
 class DetailFragment : Fragment() {
 
@@ -44,9 +47,19 @@ class DetailFragment : Fragment() {
         mBinding = null
     }
 
+    @SuppressLint("FragmentLiveDataObserve")
     private fun init() {
         val valueBoolean = SaveShared.getFavorite(MAIN, currentMovie.kinopoiskId.toString())
         val viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+
+        val movie = viewModel.getMovieRetrofit(currentMovie.kinopoiskId)
+        val id = currentMovie.kinopoiskId
+
+        var kek: Response<MovieItemModel>
+        viewModel.myMovie.observe(this) {
+            kek = it
+        }
+        var  lol = 4
 
         if (isFavorite != valueBoolean) {
             binding.imgDetailFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)

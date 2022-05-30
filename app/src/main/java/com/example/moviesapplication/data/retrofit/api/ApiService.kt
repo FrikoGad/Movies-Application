@@ -1,14 +1,13 @@
 package com.example.moviesapplication.data.retrofit.api
 
 import com.example.moviesapplication.models.MovieItemModel
-import com.example.moviesapplication.models.MovieModel
+import com.example.moviesapplication.models.MoviesModel
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Headers
+import retrofit2.http.Path
 
 interface ApiService {
-    var listMovies: List<MovieItemModel>
-
 
     @Headers(
         "accept: application/json",
@@ -16,6 +15,8 @@ interface ApiService {
     )
 
     @GET("api/v2.2/films/premieres?year=2022&month=MAY")
-    suspend fun getPremierMovie(): Response<MovieModel>
+    suspend fun getPremierMovie(): Response<MoviesModel>
 
+    @GET("api/v2.2/films/{id}")
+    suspend fun getMovie(@Path("id") movieId: Int): Response<MovieItemModel>
 }
