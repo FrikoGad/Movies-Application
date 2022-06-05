@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.moviesapplication.REALIZATION
 import com.example.moviesapplication.data.retrofit.RetrofitRepository
 import com.example.moviesapplication.data.room.repository.MoviesRepositoryRealization
+import com.example.moviesapplication.models.Movie
 import com.example.moviesapplication.models.MovieItemModel
 import com.example.moviesapplication.models.MoviesModel
 import kotlinx.coroutines.Dispatchers
@@ -16,7 +17,7 @@ import retrofit2.Response
 class DetailViewModel: ViewModel() {
 
     private val repository = RetrofitRepository()
-    val myMovie: MutableLiveData<Response<MovieItemModel>> = MutableLiveData()
+    val myMovie: MutableLiveData<Response<Movie>> = MutableLiveData()
 
     fun insert(movieItemModel: MovieItemModel, onSuccess:() -> Unit) =
         viewModelScope.launch(Dispatchers.IO) {

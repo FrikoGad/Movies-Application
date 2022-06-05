@@ -2,23 +2,22 @@ package com.example.moviesapplication.screens.detail
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
+import android.util.Log.INFO
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.moviesapplication.MAIN
 import com.example.moviesapplication.R
 import com.example.moviesapplication.SaveShared
 import com.example.moviesapplication.databinding.FragmentDetailBinding
-import com.example.moviesapplication.databinding.FragmentMainBinding
+import com.example.moviesapplication.models.Movie
 import com.example.moviesapplication.models.MovieItemModel
-import com.example.moviesapplication.models.MoviesModel
-import com.example.moviesapplication.screens.favorite.FavoriteFragmentViewModel
-import com.example.moviesapplication.screens.main.MainAdapter
 import retrofit2.Response
+import java.util.logging.Level.INFO
 
 class DetailFragment : Fragment() {
 
@@ -27,11 +26,10 @@ class DetailFragment : Fragment() {
     private var isFavorite = false
     lateinit var currentMovie: MovieItemModel
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         mBinding = FragmentDetailBinding.inflate(layoutInflater, container, false)
         currentMovie = arguments?.getSerializable("movie") as MovieItemModel
         return binding.root
@@ -52,14 +50,12 @@ class DetailFragment : Fragment() {
         val valueBoolean = SaveShared.getFavorite(MAIN, currentMovie.kinopoiskId.toString())
         val viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
 
-        val movie = viewModel.getMovieRetrofit(currentMovie.kinopoiskId)
-        val id = currentMovie.kinopoiskId
+        val movieId = currentMovie.kinopoiskId
+        viewModel.getMovieRetrofit(movieId)
 
-        var kek: Response<MovieItemModel>
         viewModel.myMovie.observe(this) {
-            kek = it
+            responseRender(it)
         }
-        var  lol = 4
 
         if (isFavorite != valueBoolean) {
             binding.imgDetailFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
@@ -88,5 +84,11 @@ class DetailFragment : Fragment() {
                 false
             }
         }
+    }
+
+    private fun responseRender(response: Response<Movie>) {
+        val responseBody = response.body()!!
+        binding.tvDescription.text = responseBody.description
+        binding.tvCountry.text = responseBody.countries[0].country
     }
 }
