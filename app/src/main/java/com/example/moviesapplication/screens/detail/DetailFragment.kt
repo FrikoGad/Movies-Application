@@ -2,8 +2,6 @@ package com.example.moviesapplication.screens.detail
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
-import android.util.Log.INFO
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +15,6 @@ import com.example.moviesapplication.databinding.FragmentDetailBinding
 import com.example.moviesapplication.models.Movie
 import com.example.moviesapplication.models.MovieItemModel
 import retrofit2.Response
-import java.util.logging.Level.INFO
 
 class DetailFragment : Fragment() {
 

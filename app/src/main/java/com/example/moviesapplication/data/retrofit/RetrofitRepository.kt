@@ -2,7 +2,6 @@ package com.example.moviesapplication.data.retrofit
 
 import com.example.moviesapplication.data.retrofit.api.RetrofitInstance
 import com.example.moviesapplication.models.Movie
-import com.example.moviesapplication.models.MovieItemModel
 import com.example.moviesapplication.models.MoviesModel
 import retrofit2.Response
 

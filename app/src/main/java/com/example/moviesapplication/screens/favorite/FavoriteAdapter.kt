@@ -8,8 +8,6 @@ import com.bumptech.glide.Glide
 import com.example.moviesapplication.MAIN
 import com.example.moviesapplication.R
 import com.example.moviesapplication.models.MovieItemModel
-import com.example.moviesapplication.screens.main.MainAdapter
-import com.example.moviesapplication.screens.main.MainFragment
 import kotlinx.android.synthetic.main.item_layout.view.*
 
 class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.MyViewHolder>() {

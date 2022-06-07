@@ -6,10 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moviesapplication.REALIZATION
 import com.example.moviesapplication.data.retrofit.RetrofitRepository
-import com.example.moviesapplication.data.room.repository.MoviesRepositoryRealization
 import com.example.moviesapplication.models.Movie
 import com.example.moviesapplication.models.MovieItemModel
-import com.example.moviesapplication.models.MoviesModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
