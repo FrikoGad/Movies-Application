@@ -8,6 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.MultiTransformation
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.bumptech.glide.load.resource.bitmap.FitCenter
+import com.bumptech.glide.request.RequestOptions
 import com.example.moviesapplication.MAIN
 import com.example.moviesapplication.R
 import com.example.moviesapplication.SaveShared
@@ -66,7 +70,7 @@ class DetailFragment : Fragment() {
             .placeholder(R.drawable.ic_launcher_foreground)
             .into(binding.imgDetail)
         binding.tvTitle.text = currentMovie.nameRu
-        binding.tvDate.text = currentMovie.premiereRu
+        binding.tvDateText.text = currentMovie.premiereRu
 
         binding.imgDetailFavorite.setOnClickListener {
             isFavorite = if (isFavorite == valueBoolean) {
@@ -85,7 +89,7 @@ class DetailFragment : Fragment() {
 
     private fun responseRender(response: Response<Movie>) {
         val responseBody = response.body()!!
-        binding.tvDescription.text = responseBody.description
-        binding.tvCountry.text = responseBody.countries[0].country
+        binding.tvDescriptionText.text = responseBody.description
+        binding.tvCountryText.text = responseBody.countries[0].country
     }
 }

@@ -19,7 +19,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:text="Title"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -29,15 +28,28 @@
         android:maxWidth="240dp"/>
 
     <TextView
-        android:id="@+id/item_date"
+        android:id="@+id/item_title_en"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="02.03.2022"
+        android:maxWidth="240dp"
+        android:text=""
         android:textColor="@color/black"
+        android:textSize="16sp"
         android:textStyle="italic"
         app:layout_constraintStart_toEndOf="@+id/item_img"
         app:layout_constraintTop_toBottomOf="@+id/item_title" />
+
+    <TextView
+        android:id="@+id/item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Date"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/item_img"
+        app:layout_constraintTop_toBottomOf="@+id/item_title_en" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,6 +25,7 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.itemView.item_title.text = listMovies[position].nameRu
         holder.itemView.item_date.text = listMovies[position].premiereRu
+        holder.itemView.item_title_en.text = listMovies[position].nameEn
 
         Glide.with(MAIN)
             .load(listMovies[position].posterUrlPreview)
