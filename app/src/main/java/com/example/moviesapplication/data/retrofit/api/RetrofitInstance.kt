@@ -1,6 +1,6 @@
 package com.example.moviesapplication.data.retrofit.api
 
-import com.example.moviesapplication.BASE_URL
+import com.example.moviesapplication.utils.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

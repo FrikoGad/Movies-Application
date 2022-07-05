@@ -8,13 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.MultiTransformation
-import com.bumptech.glide.load.resource.bitmap.CircleCrop
-import com.bumptech.glide.load.resource.bitmap.FitCenter
-import com.bumptech.glide.request.RequestOptions
-import com.example.moviesapplication.MAIN
+import com.example.moviesapplication.utils.MAIN
 import com.example.moviesapplication.R
-import com.example.moviesapplication.SaveShared
+import com.example.moviesapplication.utils.SaveShared
 import com.example.moviesapplication.databinding.FragmentDetailBinding
 import com.example.moviesapplication.models.Movie
 import com.example.moviesapplication.models.MovieItemModel

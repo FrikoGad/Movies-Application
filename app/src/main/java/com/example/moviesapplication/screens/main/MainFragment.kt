@@ -6,7 +6,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import com.example.moviesapplication.MAIN
+import com.example.moviesapplication.utils.MAIN
 import com.example.moviesapplication.R
 import com.example.moviesapplication.databinding.FragmentMainBinding
 import com.example.moviesapplication.models.MovieItemModel

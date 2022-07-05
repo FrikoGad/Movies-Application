@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.moviesapplication.REALIZATION
+import com.example.moviesapplication.utils.REALIZATION
 import com.example.moviesapplication.data.retrofit.RetrofitRepository
 import com.example.moviesapplication.models.Movie
 import com.example.moviesapplication.models.MovieItemModel

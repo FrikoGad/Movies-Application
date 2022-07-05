@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.moviesapplication.MAIN
+import com.example.moviesapplication.utils.MAIN
 import com.example.moviesapplication.R
 import com.example.moviesapplication.models.MovieItemModel
 import kotlinx.android.synthetic.main.item_layout.view.*

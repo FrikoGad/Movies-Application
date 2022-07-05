@@ -13,7 +13,7 @@ abstract class MoviesRoomDatabase : RoomDatabase() {
     abstract fun getMovieDao(): MoviesDao
 
     companion object {
-        private var database: MoviesRoomDatabase ?= null
+        private var database: MoviesRoomDatabase? = null
 
         fun getInstance(context: Context): MoviesRoomDatabase {
             return if (database == null) {

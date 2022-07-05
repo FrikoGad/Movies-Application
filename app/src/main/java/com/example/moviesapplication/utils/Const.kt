@@ -1,5 +1,6 @@
-package com.example.moviesapplication
+package com.example.moviesapplication.utils
 
+import com.example.moviesapplication.MainActivity
 import com.example.moviesapplication.data.room.repository.MoviesRepositoryRealization
 
 lateinit var  MAIN: MainActivity
