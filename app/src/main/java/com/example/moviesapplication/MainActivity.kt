@@ -15,7 +15,6 @@ import com.example.moviesapplication.utils.NetworkStateChangeReceiver
 import com.example.moviesapplication.utils.NetworkStateChangeReceiver.Companion.IS_NETWORK_AVAILABLE
 import com.google.android.material.snackbar.Snackbar
 
-
 class MainActivity : AppCompatActivity() {
 
     private var mBinding: ActivityMainBinding?= null

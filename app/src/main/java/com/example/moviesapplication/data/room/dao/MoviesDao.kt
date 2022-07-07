@@ -1,6 +1,5 @@
 package com.example.moviesapplication.data.room.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.moviesapplication.models.MovieItemModel
 
@@ -14,5 +13,5 @@ interface MoviesDao {
     suspend fun delete(movieItemModel: MovieItemModel)
 
     @Query("SELECT * from movie_table")
-    fun getAllFavoriteMovies(): LiveData<List<MovieItemModel>>
+    fun getAll(): List<MovieItemModel>
 }

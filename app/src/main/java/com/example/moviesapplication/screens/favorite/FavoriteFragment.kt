@@ -41,7 +41,8 @@ class FavoriteFragment : Fragment() {
         val viewModel = ViewModelProvider(this).get(FavoriteFragmentViewModel::class.java)
         recyclerView = binding.rvFavorite
         recyclerView.adapter = adapter
-        viewModel.getAllMovies().observe(this, {list ->
+        viewModel.getAllMovies()
+        viewModel.favoriteMovies.observe(this, {list ->
             adapter.setList(list.asReversed())
         })
     }
